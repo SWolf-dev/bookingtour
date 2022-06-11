@@ -31,4 +31,4 @@ app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 initWebRoutes(app);
 connectDB();
 
-app.listen(8080);
+app.listen(process.env.PORT);
