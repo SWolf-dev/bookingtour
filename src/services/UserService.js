@@ -87,8 +87,24 @@ let searchUserByNameService = (term)=>{
     })
 }
 
+let getAllUsersService = ()=>{
+    return new Promise(async(resolve,reject)=>{
+        try {
+            let res = await db.User.findAll();
+            resolve({
+
+                errCode:0,
+                errMessage:'oke'
+            })
+        } catch (error) {
+            reject(error)
+        }
+    })
+}
+
 module.exports = {
     getHomePageService,
     createNewUserService,
-    searchUserByNameService
+    searchUserByNameService,
+    getAllUsersService
 }

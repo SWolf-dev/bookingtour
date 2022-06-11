@@ -10,6 +10,8 @@ let initWebRoutes = (app)=>{
 
     router.get('/api/search',userController.searchUserByName);
 
+    router.get('/api/get-all-users',userController.getAllUsers);
+
     
 
     app.get('/', (req, res) => {

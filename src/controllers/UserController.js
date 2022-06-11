@@ -37,8 +37,22 @@ let searchUserByName = async(req,res)=>{
     }
 }
 
+let getAllUsers = async(req,res)=>{
+    try {
+        let data = await userService.getAllUsersService();
+        res.status(200).json(data);
+    } catch (error) {
+        console.log(error);
+         res.status(200).json({
+            errCode:-1,
+            errMessage:'Err from sever'
+         });
+    }
+}
+
 module.exports = {
     getHomePage,
     createNewUser,
     searchUserByName,
+    getAllUsers
 }
