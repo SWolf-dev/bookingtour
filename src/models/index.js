@@ -30,6 +30,7 @@ const customizeConfig = {
 
 sequelize = new Sequelize(process.DB_NAME, process.env.DB_USER_NAME, process.env.DB_USER_PASSWORD, customizeConfig);
 
+console.log(process.env.DB_NAME)
 
 fs
   .readdirSync(__dirname)
