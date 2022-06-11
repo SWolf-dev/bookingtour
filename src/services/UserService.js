@@ -90,11 +90,12 @@ let searchUserByNameService = (term)=>{
 let getAllUsersService = ()=>{
     return new Promise(async(resolve,reject)=>{
         try {
-            let res = await db.User.findAll();
+            let data = await db.User.findAll();
             resolve({
 
                 errCode:0,
-                errMessage:'oke'
+                errMessage:'oke',
+                data:data
             })
         } catch (error) {
             reject(error)

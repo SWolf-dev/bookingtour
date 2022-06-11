@@ -1,19 +1,16 @@
 'use strict';
+require('dotenv').config();
 
 const fs = require('fs');
 const path = require('path');
 const Sequelize = require('sequelize');
 const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || 'development';
-require('dotenv').config();
-
 const db = {};
 
-
 let sequelize;
-
 const customizeConfig = {
-   host: process.env.DB_HOST,
+    host: process.env.DB_HOST,
     dialect: 'postgres',
     logging: false,
     query:{
@@ -27,10 +24,8 @@ const customizeConfig = {
       }
     }
 }
+sequelize = new Sequelize(process.env.DB_NAME,process.env.DB_USER_NAME,process.env.DB_USER_PASSWORD,customizeConfig);
 
-sequelize = new Sequelize(process.DB_NAME, process.env.DB_USER_NAME, process.env.DB_USER_PASSWORD, customizeConfig);
-
-console.log(process.env.DB_NAME)
 
 fs
   .readdirSync(__dirname)
