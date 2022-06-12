@@ -11,6 +11,8 @@ let initWebRoutes = (app)=>{
     router.get('/api/search',userController.searchUserByName);
 
     router.get('/api/get-all-users',userController.getAllUsers);
+    router.post('/api/log-in',userController.userLogin);
+    router.post('/api/log-out',userController.userLogout)
 
     
 
