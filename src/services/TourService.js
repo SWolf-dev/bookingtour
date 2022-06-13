@@ -37,11 +37,12 @@ let getToursByLimitService = (limit)=>{
             let data = await db.Tour.findAll({
                 limit: limit,
                 order: [["updatedAt", "DESC"]],
-                // include:[
-                //     { model: db.Allcode, as: 'genderData', attributes: ['value'] },
-                // ],
-                // nest: true,
-                // raw: false
+                include:[
+                    { model: db.Allcode, as: 'priceData', attributes: ['value'] },
+                    { model: db.Allcode, as: 'countryData', attributes: ['value'] },
+                ],
+                nest: true,
+                raw: false
             });
             if(data && data.image){
                 data.image = Buffer.from(data.image, 'base64').toString('binary');

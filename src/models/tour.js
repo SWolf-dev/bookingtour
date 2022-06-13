@@ -11,6 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Tour.belongsTo(models.Allcode, {foreignKey:'price',targetKey:'keyMap', as:'priceData'});
+      Tour.belongsTo(models.Allcode, {foreignKey:'country',targetKey:'keyMap', as:'countryData'});
     }
   }
   Tour.init({
