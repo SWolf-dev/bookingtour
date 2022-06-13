@@ -10,6 +10,9 @@ module.exports = {
       },
       keyMap: {
         type: Sequelize.TEXT
+      },
+      type:{
+        type: Sequelize.TEXT
       },    
       value:{
         type: Sequelize.TEXT

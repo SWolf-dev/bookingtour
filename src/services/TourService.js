@@ -37,9 +37,12 @@ let getToursByLimitService = (limit)=>{
             let data = await db.Tour.findAll({
                 limit: limit,
                 order: [["updatedAt", "DESC"]],
+                attributes: {
+                    exclude: ['country','price']
+                },
                 include:[
-                    { model: db.Allcode, as: 'priceData', attributes: ['value'] },
-                    { model: db.Allcode, as: 'countryData', attributes: ['value'] },
+                    { model: db.Allcode, as: 'priceData', attributes: ['value','keyMap'] },
+                    { model: db.Allcode, as: 'countryData', attributes: ['value','keyMap'] },
                 ],
                 nest: true,
                 raw: false
