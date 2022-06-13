@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Places', {
+    await queryInterface.createTable('Tours', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -11,15 +11,21 @@ module.exports = {
       name: {
         type: Sequelize.TEXT
       },
-      descriptionMarkdown:{
+      price:{
         type: Sequelize.TEXT
       },
-      descriptionHTML:{
+      video:{
         type: Sequelize.TEXT
       },      
       country:{
         type: Sequelize.TEXT
       },
+      descriptionHTML:{
+        type: Sequelize.TEXT
+      },
+      descriptionMarkdown:{
+        type: Sequelize.TEXT
+      },   
       image: {
         type: Sequelize.BLOB('long'),
       },
@@ -34,6 +40,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Places');
+    await queryInterface.dropTable('Tours');
   }
 };

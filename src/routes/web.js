@@ -1,5 +1,7 @@
 const express = require('express')
 const userController = require('../controllers/UserController');
+const placeController = require('../controllers/PlaceController');
+const tourController = require('../controllers/TourController');
 
 const router = express.Router();
 let initWebRoutes = (app)=>{
@@ -12,7 +14,12 @@ let initWebRoutes = (app)=>{
 
     router.get('/api/get-all-users',userController.getAllUsers);
     router.post('/api/log-in',userController.userLogin);
-    router.post('/api/log-out',userController.userLogout)
+    router.post('/api/log-out',userController.userLogout);
+
+    router.post('/api/create-new-place',placeController.createNewPlace);
+
+    router.post('/api/create-new-tour',tourController.createNewTour);
+    router.get('/api/get-tours-by-limit',tourController.getToursByLimit)
 
     
 

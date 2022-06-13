@@ -195,7 +195,17 @@ let searchUserByNameService = (term)=>{
 let getAllUsersService = ()=>{
     return new Promise(async(resolve,reject)=>{
         try {
-            let data = await db.User.findAll();
+            let data = await db.User.findAll({
+                
+                attributes: {
+                    exclude: ['password']
+                },
+                include:[
+                    { model: db.Allcode, as: 'genderData', attributes: ['value'] },
+                ],
+                nest: true,
+                raw: false
+            });
             if(data && data.image){
                 data.image = Buffer.from(data.image, 'base64').toString('binary');
             }
